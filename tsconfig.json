@@ -1,8 +1,0 @@
-{
-    "compilerOptions": {
-        "alwaysStrict":true,
-        "removeComments": true,
-        "outFile": "./dist/script.js"
-    },
-    "include": ["src/ts/*"]
-}
