@@ -1,0 +1,10 @@
+div[popup="container"]{
+    background-color: rgba(0, 0, 0, 0.363);
+    height:100vh;
+    width: 100vw;
+    display: none;
+    place-items: center;
+    z-index: 999;
+    position: fixed;
+    *,*::before,*::after{margin:0px;padding:0px;box-sizing:border-box;outline:none;font-family: Calibri;}
+}

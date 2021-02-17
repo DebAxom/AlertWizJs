@@ -1,0 +1,7 @@
+@import 'container';
+@import 'alert';
+@import 'confirm';
+@import 'input';
+*,*::before,*::after{margin:0px;padding:0px;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-size:1.6rem;}
