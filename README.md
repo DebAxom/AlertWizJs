@@ -1,2 +1,2 @@
-# popupjs
-popupjs is a library for creating custom popups in web.
+# CustomPopupJs
+CustomPopupJs is a library for creating custom popups in web.
