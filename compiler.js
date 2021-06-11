@@ -14,7 +14,7 @@ const inputOptions = {
 
 const outputOptions = {
     file:'dist/script.js',
-    format:'iife',
+    format:'es',
 };
 
 async function build() {
