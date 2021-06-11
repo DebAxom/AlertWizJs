@@ -1,11 +1,12 @@
-var alertwizContainerDiv = document.getElementsByClassName('alertwiz-container')[0];
-
 function close() {
+    var alertwizContainerDiv = document.getElementsByClassName('alertwiz-container')[0];
     alertwizContainerDiv.style.display = "none";
     alertwizContainerDiv.innerHTML = "";
 }
 
 export default (props,cb=()=>{})=>{
+    var alertwizContainerDiv = document.getElementsByClassName('alertwiz-container')[0];
+    
     const inputDiv = document.createElement('div');
 
     if(screen.width>411){
