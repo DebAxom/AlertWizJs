@@ -4,7 +4,7 @@
   "description": "A library for creating custom popups in javascript for browsers.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node compiler.js"
   },
   "repository": {
     "type": "git",
