@@ -7,8 +7,8 @@ const fs = require('fs');
 const inputOptions = {
     input:'src/js/main.js',
     plugins:[
-        // babel({ babelHelpers:'bundled',presets:['@babel/preset-env']}),
-        // terser()
+        babel({ babelHelpers:'bundled',presets:['@babel/preset-env']}),
+        terser()
     ]
 };
 
