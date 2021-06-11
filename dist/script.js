@@ -1,1 +1,154 @@
-var e=document.getElementsByClassName("alertwiz-container")[0];function t(){e.style.display="none",e.innerHTML=""}var n=document.getElementsByClassName("alertwiz-container")[0];function i(){n.style.display="none",n.innerHTML=""}var d=document.getElementsByClassName("alertwiz-container")[0];function a(){d.style.display="none",d.innerHTML=""}window.alertwiz={},window.alertwiz={Alert:function(n){var i=arguments.length>1&&void 0!==arguments[1]?arguments[1]:function(){},d=document.createElement("div");screen.width>411?d.setAttribute("style","width:40%;"):d.setAttribute("style","width:60%;"),d.classList.add("alertwiz-alert");var a=document.createElement("div");a.innerHTML=n.title;var r=document.createElement("div");r.innerHTML=n.msg;var l=document.createElement("button");l.setAttribute("style","background-color:#0099ff;"),l.classList.add("alertwiz-alert-btn"),l.addEventListener("click",(function(){t(),i()})),l.innerHTML=n.accept||"Ok";var c=document.createElement("div");c.appendChild(l),d.appendChild(a),d.appendChild(r),d.appendChild(c),e.style.display="grid",e.append(d)},Confirm:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:function(){},d=arguments.length>2&&void 0!==arguments[2]?arguments[2]:function(){},a=document.createElement("div");screen.width>411?a.setAttribute("style","width:40%;"):a.setAttribute("style","width:60%;"),a.classList.add("alertwiz-confirm");var r=document.createElement("div");r.innerHTML=e.title;var l=document.createElement("div");l.innerHTML=e.msg;var c=document.createElement("button");c.setAttribute("style","background-color:#0099ff;"),c.classList.add("alertwiz-confirm-accept"),c.innerHTML=e.accept||"Accept",c.addEventListener("click",(function(){t(),i()}));var s=document.createElement("button");s.setAttribute("style","background-color:red;"),s.classList.add("alertwiz-confirm-decline"),s.innerHTML=e.decline||"Decline",s.addEventListener("click",(function(){d(),i()}));var o=document.createElement("div");o.appendChild(s),o.appendChild(c),a.appendChild(r),a.appendChild(l),a.appendChild(o),n.style.display="grid",n.append(a)},Input:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:function(){},n=document.createElement("div");screen.width>411?n.setAttribute("style","width:40%;"):n.setAttribute("style","width:60%;"),n.classList.add("alertwiz-input");var i=document.createElement("div");i.innerHTML=e.title;var r=document.createElement("div");r.innerHTML=e.msg;var l=document.createElement("input");l.setAttribute("type",e.inputType||"text"),l.classList.add("alertwiz-input-input");var c=document.createElement("button");c.setAttribute("style","background-color:#0099ff;"),c.classList.add("alertwiz-input-btn"),c.addEventListener("click",(function(){a(),t(l.value)})),c.innerHTML=e.accept||"OK";var s=document.createElement("div");s.appendChild(l),s.appendChild(c),n.appendChild(i),n.appendChild(r),n.appendChild(s),d.style.display="grid",d.append(n)}};
+(function () {
+    'use strict';
+
+    var alertwizContainerDiv$2 = document.getElementsByClassName('alertwiz-container')[0];
+
+    function close$2() {
+        alertwizContainerDiv$2.style.display = "none";
+        alertwizContainerDiv$2.innerHTML = "";
+    }
+
+    var Alert = (props,cb=()=>{})=>{
+        const alertDiv = document.createElement('div');
+
+        if(screen.width>411){
+            alertDiv.setAttribute('style','width:40%;');
+        }else {
+            alertDiv.setAttribute('style','width:60%;');
+        }
+
+        alertDiv.classList.add('alertwiz-alert');
+
+        const titleDiv = document.createElement('div');
+        titleDiv.innerHTML=props.title;
+
+        const msgDiv = document.createElement('div');
+        msgDiv.innerHTML=props.msg;
+
+        const btn = document.createElement('button');
+        btn.setAttribute('style','background-color:#0099ff;');
+        btn.classList.add('alertwiz-alert-btn');
+        btn.addEventListener('click',()=>{
+            close$2();
+            cb();
+        });
+        btn.innerHTML=props.accept || 'Ok';
+
+        const ButtonDiv = document.createElement('div');
+        ButtonDiv.appendChild(btn);
+        
+        alertDiv.appendChild(titleDiv);
+        alertDiv.appendChild(msgDiv);
+        alertDiv.appendChild(ButtonDiv);
+
+        alertwizContainerDiv$2.style.display = "grid";
+        alertwizContainerDiv$2.append(alertDiv);
+    };
+
+    var alertwizContainerDiv$1 = document.getElementsByClassName('alertwiz-container')[0];
+
+    function close$1() {
+        alertwizContainerDiv$1.style.display = "none";
+        alertwizContainerDiv$1.innerHTML = "";
+    }
+
+    var Confirm = (props,acceptEvent=()=>{},declineEvent=()=>{})=>{
+        const confirmDiv = document.createElement('div');
+
+        if(screen.width>411){
+            confirmDiv.setAttribute('style','width:40%;');
+        }else {
+            confirmDiv.setAttribute('style','width:60%;');
+        }
+
+        confirmDiv.classList.add('alertwiz-confirm');
+
+        const titleDiv = document.createElement('div');
+        titleDiv.innerHTML=props.title;
+
+        const msgDiv = document.createElement('div');
+        msgDiv.innerHTML=props.msg;
+
+        const acceptButton = document.createElement('button');
+        acceptButton.setAttribute('style','background-color:#0099ff;');
+        acceptButton.classList.add('alertwiz-confirm-accept');
+        acceptButton.innerHTML=props.accept || 'Accept';
+        acceptButton.addEventListener('click',()=>{
+            acceptEvent();
+            close$1();
+        });
+
+        const declineButton = document.createElement('button');
+        declineButton.setAttribute('style','background-color:red;');
+        declineButton.classList.add('alertwiz-confirm-decline');
+        declineButton.innerHTML=props.decline || 'Decline';
+        declineButton.addEventListener('click',()=>{
+            declineEvent();
+            close$1();
+        });
+
+        const ButtonDiv = document.createElement('div');
+        ButtonDiv.appendChild(declineButton);
+        ButtonDiv.appendChild(acceptButton);
+        
+        confirmDiv.appendChild(titleDiv);
+        confirmDiv.appendChild(msgDiv);
+        confirmDiv.appendChild(ButtonDiv);
+        
+        alertwizContainerDiv$1.style.display = "grid";
+        alertwizContainerDiv$1.append(confirmDiv);
+    };
+
+    var alertwizContainerDiv = document.getElementsByClassName('alertwiz-container')[0];
+
+    function close() {
+        alertwizContainerDiv.style.display = "none";
+        alertwizContainerDiv.innerHTML = "";
+    }
+
+    var Input = (props,cb=()=>{})=>{
+        const inputDiv = document.createElement('div');
+
+        if(screen.width>411){
+            inputDiv.setAttribute('style','width:40%;');
+        }else {
+            inputDiv.setAttribute('style','width:60%;');
+        }
+
+        inputDiv.classList.add('alertwiz-input');
+
+        const titleDiv = document.createElement('div');
+        titleDiv.innerHTML=props.title;
+
+        const msgDiv = document.createElement('div');
+        msgDiv.innerHTML=props.msg;
+
+        const inputTag = document.createElement('input');
+        inputTag.setAttribute('type',props.inputType || 'text');
+        inputTag.classList.add('alertwiz-input-input');
+
+        const btn = document.createElement('button');
+        btn.setAttribute('style','background-color:#0099ff;');
+        btn.classList.add('alertwiz-input-btn');
+        btn.addEventListener('click',()=>{
+            close();
+            cb(inputTag.value);
+        });
+
+        btn.innerHTML=props.accept || 'OK';
+        const inputAndButtonContainer = document.createElement('div');
+        inputAndButtonContainer.appendChild(inputTag);
+        inputAndButtonContainer.appendChild(btn);
+
+        inputDiv.appendChild(titleDiv);
+        inputDiv.appendChild(msgDiv);
+        inputDiv.appendChild(inputAndButtonContainer);
+
+        alertwizContainerDiv.style.display = "grid";
+        alertwizContainerDiv.append(inputDiv);
+    };
+
+    window.alertwiz = {};
+    window.alertwiz = {Alert,Confirm,Input};
+
+}());
