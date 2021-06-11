@@ -29,7 +29,7 @@ export default (props,cb=()=>{})=>{
         close();
         cb();
     });
-    btn.innerHTML=props.accept || 'Ok';
+    btn.innerHTML=props.accept || 'OK';
 
     const ButtonDiv = document.createElement('div');
     ButtonDiv.appendChild(btn);

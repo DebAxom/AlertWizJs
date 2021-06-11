@@ -34,7 +34,7 @@ export default (props,cb=()=>{})=>{
         cb(inputTag.value);
     });
 
-    btn.innerHTML=props.accept || 'OK';
+    btn.innerHTML=props.ok || 'OK';
     const inputAndButtonContainer = document.createElement('div');
     inputAndButtonContainer.appendChild(inputTag);
     inputAndButtonContainer.appendChild(btn);

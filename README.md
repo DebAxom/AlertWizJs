@@ -4,8 +4,8 @@ AlertWizJs is a library for creating custom popups in web.
 ### Include the following tags in the head tag
 
 ```html
-<script src="https://raw.githubusercontent.com/DebAxom/AlertWizJs/master/dist/script.js" async defer></script>
-<link rel="stylesheet" href="https://raw.githubusercontent.com/DebAxom/AlertWizJs/master/dist/style.css">
+<script src="https://debaxom.github.io/AlertWizJs/dist/script.js" async defer></script>
+<link rel="stylesheet" href="https://debaxom.github.io/AlertWizJs/dist/style.css">
 ```
 ### Include this in the body tag (at the top level)
 
@@ -49,6 +49,7 @@ window.alertwiz.Input(props,callback);
     props is an object:
         title: title to be displayed on the input box.
         msg: msg to be displayed on the input box.
+        ok: text to be displayed on the button of the alertbox. (optional)(default:'OK')
         inputType: Type of input (optional) (default:'text')
     callback is optional.
             Example: window.alertwiz.Input(props,res=>console.log(res)); // res is the input from the user.
