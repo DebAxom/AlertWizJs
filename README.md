@@ -21,7 +21,7 @@ window.alertwiz.Alert(props,callback);
     props is an object:
         title: title to be displayed on the alert box.
         msg: msg to be displayed on the alert box.
-        ok: text to be displayed on the button of the alertbox. (optional) (default:'OK')
+        accept: text to be displayed on the button of the alertbox. (optional) (default:'OK')
     callback is optional
 */
 ```
